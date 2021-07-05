@@ -1,0 +1,565 @@
+html,body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DotGothic16', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  padding: 0 16px;
+  background-color: rgba(189, 186, 189, 0.7);
+  width: 100%;
+  height: 65px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+header h2 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 64px;
+  font-family: 'Press Start 2P', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+}
+
+.sp-menu {
+  margin-left: auto;
+}
+
+.sp-menu #open {
+  font-size: 32px;
+  line-height: 64px;
+  cursor: pointer;
+}
+
+.sp-menu #open.hide {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s;
+  z-index: 11;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay #close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li {
+  margin-top: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .3s, transform .3s;
+}
+
+.overlay.show li {
+  opacity: 1;
+  transform: none;
+}
+
+.overlay.show li:nth-child(1) {
+  transition-delay: .1s;
+}
+
+.overlay.show li:nth-child(2) {
+  transition-delay: .2s;
+}
+
+.overlay.show li:nth-child(3) {
+  transition-delay: .3s;
+}
+
+.overlay a {
+  font-family: 'Press Start 2P', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+  color: #504946;
+}
+
+.arrow-right {
+  width: 30px;
+  height: 30px;
+}
+
+.pc-menu {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .pc-menu {
+    display: block;
+    margin-left: auto;
+  }
+
+  .pc-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .pc-menu a {
+    display: block;
+    width: 120px;
+    line-height: 64px;
+    text-align: center;
+    font-family: 'Press Start 2P', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+    color: #504946;
+  }
+
+  .pc-menu a:hover {
+    background: #f2f2f2;
+  }
+
+  .sp-menu {
+    display: none;
+  }
+}
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.top-wrapper {
+  width: 100%;
+  padding: 200px 0 100px 0;
+  background:#ddd url(../img/top-background.png) no-repeat center center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.top-wrapper h1{
+  opacity: 0.7;
+  font-size: 45px;
+  letter-spacing: 5px;
+  margin-bottom: 8px;
+}
+
+.game-menu {
+  width: 440px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  backdrop-filter: blur(2px);
+}
+
+.game-menu ul {
+  cursor: pointer;
+}
+
+.game-menu li {
+  font-size: 20px;
+  height: 50px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-craft {
+  background-color: rgb(196,196,196);
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  height: 50px;
+  padding: 0.25em 0;
+  text-align: center;
+  line-height: 50px;
+  box-shadow: inset 3px 3px 0 rgb(238,236,235), inset -3px -4px 0 rgb(85, 85, 85);
+  border: 2px solid black;
+}
+
+a span {
+  color: rgb(57, 57, 57);
+  text-shadow: 1px 2px 3px #383838;
+}
+
+a .hover-action {
+  display: none;
+}
+
+a:hover .normal {
+  display: none;
+}
+
+a:hover .hover-action {
+  display: inline-block;
+  font-size: 25px;
+}
+
+.btn-craft:active {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.heading {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  background-color: rgb(227, 25, 36);
+  border-radius: 10px;
+  padding: 10px 0;
+  font-family: 'Press Start 2P', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+}
+
+.heading h2 {
+  color: white;
+  font-size: 32px;
+}
+
+.status {
+  font-family: 'DotGothic16', 'MOTHER PIXEL2', sans-serif;
+  font-size: 20px;
+  background: linear-gradient(135deg, #04129f, #020341);
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  margin: 0 auto;
+  width: 480px;
+  padding: 30px;
+  border: 4px solid silver;
+  border-radius: 10px;
+  cursor: default;
+}
+
+.status-left {
+  text-align: left;
+  margin-right: 30px;
+}
+
+.img-me {
+  background: #fff;
+  width: 70px;
+  height: 70px;
+}
+
+.status-left span {
+  color: rgb(43, 221, 229);
+}
+
+.status-right {
+  text-align: left;
+}
+
+.status-border {
+  border: 3px solid #fff;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.introduce {
+  display: flex;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.description {
+  border: 2px solid  rgb(4, 18, 155);
+  border-radius: 10px;
+  background: #eaf4fc;
+  opacity: 0.1;
+  cursor: default;
+  padding: 15px;
+  margin: 10px;
+  width: 45%;
+  flex-wrap: wrap;
+}
+
+.description:hover {
+  opacity: 1;
+  transform: scale(1.05, 1.05);
+  transition: 1s all;
+}
+
+.arrow-right {
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.description h2 {
+  margin-bottom: 10px;
+  color:  rgb(4, 18, 155);
+}
+
+.bg-img1 {
+  background-image: url(../img/description1.jpg);
+  background-size: cover;
+}
+
+.bg-img2 {
+  background-image: url(../img/description2.png);
+  background-size: cover;
+}
+
+.bg-img3 {
+  background-image: url(../img/description3.jpg);
+  background-size: cover;
+}
+
+.bg-img4 {
+  background-image: url(../img/description4.jpg);
+  background-size: cover;
+}
+
+.bg-mask {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.my-history {
+  cursor: default;
+  background: rgb(253, 232, 142);
+  padding: 15px;
+}
+
+.year {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(227, 25, 36);
+}
+
+.year h2 {
+  font-family: 'Press Start 2P', 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans','ヒラギノ角ゴシック',  Arial, sans-serif;
+  font-size: 40px;
+}
+
+.detail {
+  width: 60%;
+  padding: 30px 0;
+}
+
+.card {
+  background: rgb(253, 232, 142);
+  padding: 10px 10px;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 500px;
+  box-shadow: 1px 1px 3px rgb(68, 68, 68);
+}
+
+.space-bottom {
+  margin-bottom: 20px;
+}
+
+.card-right {
+  background: rgb(253, 232, 142);
+  padding: 10px 10px;
+  margin-left: auto;
+  margin-bottom: 10px;
+  width: 500px;
+  box-shadow: -1px 1px 3px rgb(68, 68, 68);
+}
+
+.tabpc-hidden{
+  display: none;
+}
+
+.tabpc-hidden h2 {
+  display: none;
+}
+
+.tabpc-hidden p {
+  display: none;
+}
+.pic.tabpc-hidden {
+  width: 0%;
+}
+
+.tabpc-hidden img {
+  display: none;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.scrollanime {
+  opacity: 0;
+}
+
+.fadeInDown {
+  animation-name: fadeInDown;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.slide-right {
+  transform: translateX(100px);
+}
+
+.slide-left {
+  transform: translateX(-100px);
+}
+
+.pic {
+  width: 20%;
+  display: flex;
+}
+
+.pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: white;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.message {
+  margin: 20px 150px;
+  padding: 20px;
+  background-color: #f8f8ff;
+  border: 1px solid #d3d3d3;
+  box-shadow: 10px 10px 15px -5px #d3d3d3;
+  color: #504946;
+}
+
+.message h2 {
+  margin-bottom: 20px;
+  font-size: 35px;
+}
+
+.message p {
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.imp {
+  font-size: 28px;
+  color: #ff4500;
+  letter-spacing: 15px;
+}
+
+.skill-set {
+  display: flex;
+}
+
+.skill-chart {
+  margin: 0 auto;
+}
+
+.radar-chart {
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
+}
+
+.score {
+  border: 1px solid #dcdcdc;
+  width: 300px;
+  padding: 20px 0;
+  margin: 20px 10px;
+}
+
+.score li {
+  line-height: 30px;
+}
+
+.policy-wrapper{
+  margin-bottom: 40px;
+}
+
+.emphasis h3 {
+  font-size: 40px;
+}
+
+.three-equipment {
+  display: flex;
+}
+
+.equip {
+  position: relative;
+  margin: 0 auto;
+}
+
+.equip img {
+  width: 250px;
+  height: 250px;
+}
+
+.equip h2 {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  font-size: 40px;
+  color: red;
+}
+
+.equip p {
+  padding: 10px 10px;
+  text-align: left;
+  color: #4e454a;
+  width: 230px;
+}
+
+footer {
+  padding: 20px 0;
+  background-color: rgb(189, 186, 189);
+}
+
