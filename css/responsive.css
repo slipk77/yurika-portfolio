@@ -300,11 +300,11 @@
   }
 
   .message h2 {
-    font-size: 17px;
+    font-size: 14px;
   }
 
   .message p {
-    font-size: 1vw;
+    font-size: 12px;
     border-bottom: none;
   }
 
