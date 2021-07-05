@@ -3,12 +3,18 @@
 {
   const open = document.getElementById('open');
   const overlay = document.querySelector('.overlay');
+  const items = document.getElementById('items');
   const close = document.getElementById('close');
 
   open.addEventListener('click', () => {
     overlay.classList.add('show');
     open.classList.add('hide');
   });
+  
+  items.addEventListener('click', () => {
+    overlay.classList.remove('show');
+    open.classList.remove('hide');
+  }, false);
 
   close.addEventListener('click', () => {
     overlay.classList.remove('show');
